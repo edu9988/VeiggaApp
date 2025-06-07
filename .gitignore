@@ -1,5 +1,6 @@
 *.local
 log*
+.env
 
 # dependencies
 node_modules/
