@@ -6,6 +6,7 @@ import { AntDesign, FontAwesome, FontAwesome5 } from '@expo/vector-icons'
 
 import TestStripes from './screens/TestStripes'
 import TestGet from './screens/TestGet'
+import CustomerTab from './screens/CustomerTab'
 
 const Tab = createBottomTabNavigator()
 
@@ -14,7 +15,7 @@ export default () => (
     <SafeAreaView style={{flex: 1}}>
       <NavigationContainer>
         <Tab.Navigator
-          initialRouteName="Shop"
+          initialRouteName="Customers"
           screenOptions={ ({ route }) => ({
             headerShown: false,
             tabBarStyle: {
@@ -51,14 +52,14 @@ export default () => (
               }}>
                 {route.name === 'Shop' && <FontAwesome name="shopping-bag" size={35} color={color}/>}
                 {route.name === 'Cart' && <AntDesign name="shoppingcart" size={40} color={color}/>}
-                {route.name === 'Account' && <FontAwesome5 name="user" size={35} color={color}/>}
+                {route.name === 'Customers' && <FontAwesome5 name="user" size={35} color={color}/>}
               </View>
             )
           })}
         >
           <Tab.Screen name="Shop" component={TestGet} />
           <Tab.Screen name="Cart" component={TestStripes} />
-          <Tab.Screen name="Account" component={TestStripes} />
+          <Tab.Screen name="Customers" component={CustomerTab} />
         </Tab.Navigator>
       </NavigationContainer>
     </SafeAreaView>
