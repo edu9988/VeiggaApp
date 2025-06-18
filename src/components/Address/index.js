@@ -7,7 +7,7 @@ export default (props) => {
 
   return(
     <View style={styles.container}>
-      <Text style={styles.text}>{address.address} {address.number}, {address.locality}</Text>
+      <Text style={styles.text}>{address.address} {address.number}{address.floor && `/${address.floor}`}, {address.locality}</Text>
       <Text style={styles.text}>{address.city}, {address.province} - {address.country}</Text>
       <Text style={styles.text}>{address.zipcode.slice(0,5)}-{address.zipcode.slice(5)}</Text>
     </View>

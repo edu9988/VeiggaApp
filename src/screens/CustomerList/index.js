@@ -1,4 +1,4 @@
-import { FlatList, View }  from 'react-native'
+import { FlatList, Text, View }  from 'react-native'
 import { useState, useEffect }  from 'react'
 import { useNavigation } from '@react-navigation/native'
 
@@ -41,6 +41,11 @@ export default () => {
   }
 
   return (<>
+    {customers.length === 0
+      && <Text style={styles.warning}>
+        Nenhum cliente
+      </Text>
+    }
     <AddButton action={() => navigation.navigate('CreateEditCustomer')}/>
     <FlatList
       data={customers}

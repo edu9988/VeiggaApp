@@ -1,6 +1,6 @@
 import { FlatList, View } from 'react-native'
 
-const arr = Array.from({length:40}, (e,i) => i)
+const arr = Array.from({length:40}, (_,i) => i)
 
 export default () => (
   <FlatList

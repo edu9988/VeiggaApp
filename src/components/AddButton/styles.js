@@ -4,8 +4,8 @@ export default StyleSheet.create({
   button: {
     position: 'absolute',
     zIndex: 9999,
-    right: 30,
-    bottom: 60,
+    right: 20,
+    bottom: 110,
     width: 80,
     height: 80,
     padding: 0,

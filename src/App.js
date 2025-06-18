@@ -4,9 +4,10 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { AntDesign, FontAwesome, FontAwesome5 } from '@expo/vector-icons'
 
-import TestStripes from './screens/TestStripes'
+//import TestStripes from './screens/TestStripes'
 import TestGet from './screens/TestGet'
 import CustomerTab from './screens/CustomerTab'
+import OrderTab from './screens/OrderTab'
 
 const Tab = createBottomTabNavigator()
 
@@ -15,28 +16,30 @@ export default () => (
     <SafeAreaView style={{flex: 1}}>
       <NavigationContainer>
         <Tab.Navigator
-          initialRouteName="Customers"
+          initialRouteName="Vendas"
           screenOptions={ ({ route }) => ({
             headerShown: false,
             tabBarStyle: {
-              width: '90%',
-              height: 75,
-              marginBottom: 10,
-              marginHorizontal: '5%',
+              height: 90,
               position: 'absolute',
               elevation: 0,
-              backgroundColor: 'rgba(27,27,27,0.5)',
-              borderTopWidth: 0,
-              borderRadius: 37.5,
+              backgroundColor: 'rgba(255, 255, 255, 0.8)',
+              borderTopWidth: 1,
+              borderTopColor: '#ccc',
             },
-            tabBarShowLabel: false,
+            tabBarShowLabel: true,
             tabBarItemStyle: {
               padding: 0,
-              height: 75,
+              height: 90,
             },
             //tabBarActiveTintColor: '#6200ee',
             tabBarActiveTintColor: '#000',
-            tabBarInactiveTintColor: 'gray',
+            tabBarInactiveTintColor: '#ccc',
+            tabBarLabelStyle: {
+              position: 'absolute',
+              bottom: 0,
+              fontSize: 15,
+            },
             tabBarIcon: ({ color }) => (
               <View style={{
                 width: 60,
@@ -50,16 +53,16 @@ export default () => (
                 borderRadius: 40,
                 backgroundColor: 'white',
               }}>
-                {route.name === 'Shop' && <FontAwesome name="shopping-bag" size={35} color={color}/>}
-                {route.name === 'Cart' && <AntDesign name="shoppingcart" size={40} color={color}/>}
-                {route.name === 'Customers' && <FontAwesome5 name="user" size={35} color={color}/>}
+                {route.name === 'Produtos' && <FontAwesome name="shopping-bag" size={35} color={color}/>}
+                {route.name === 'Vendas' && <AntDesign name="shoppingcart" size={40} color={color}/>}
+                {route.name === 'Clientes' && <FontAwesome5 name="user" size={35} color={color}/>}
               </View>
             )
           })}
         >
-          <Tab.Screen name="Shop" component={TestGet} />
-          <Tab.Screen name="Cart" component={TestStripes} />
-          <Tab.Screen name="Customers" component={CustomerTab} />
+          <Tab.Screen name="Produtos" component={TestGet} />
+          <Tab.Screen name="Vendas" component={OrderTab} />
+          <Tab.Screen name="Clientes" component={CustomerTab} />
         </Tab.Navigator>
       </NavigationContainer>
     </SafeAreaView>

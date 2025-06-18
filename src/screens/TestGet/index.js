@@ -3,9 +3,10 @@ import { Image, FlatList, Text, View } from 'react-native'
 
 import productService from '../../services/products'
 import Product from '../../components/Product'
+import styles from './styles'
 
 export default () => {
-  const [products, setProducts] = useState()
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
     const getAndPrint = async () => {
@@ -21,7 +22,12 @@ export default () => {
     getAndPrint()
   }, [])
 
-  return (
+  return (<>
+    {products.length === 0
+      && <Text style={styles.warning}>
+        Nenhum produto
+      </Text>
+    }
     <FlatList
       style={{backgroundColor: '#fff'}}
       ItemSeparatorComponent={() => (<View style={{
@@ -36,5 +42,5 @@ export default () => {
         return <Product data={item} />
       }}
     />
-  )
+  </>)
 }
